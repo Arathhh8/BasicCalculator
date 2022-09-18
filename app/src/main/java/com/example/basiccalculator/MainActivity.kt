@@ -1,5 +1,6 @@
 package com.example.basiccalculator
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.graphics.Color
@@ -17,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
 
+    @SuppressLint("MissingInflatedId")
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,12 +26,14 @@ class MainActivity : AppCompatActivity() {
 
         var operat = 0
         var btnEqual = findViewById<Button>(R.id.btnEqual)
+        var btnClear = findViewById<Button>(R.id.btnClear)
         val btnPlus = findViewById<Button>(R.id.btnPlus)
         val btnMinus = findViewById<Button>(R.id.btnMinus)
         val btnMultiply = findViewById<Button>(R.id.btnMultiply)
         val btnDivide = findViewById<Button>(R.id.btnDivide)
         var etNum1 = findViewById<EditText>(R.id.etNum1)
         var etNum2 = findViewById<EditText>(R.id.etNum2)
+        var tvResult = findViewById<TextView>(R.id.tvResult)
 
         btnPlus.setOnClickListener{
             btnMultiply.setBackgroundColor(Color.parseColor("#FF6200EE"))
@@ -67,6 +71,18 @@ class MainActivity : AppCompatActivity() {
             var btnDivide = findViewById<Button>(R.id.btnDivide)
             btnDivide.setBackgroundColor(Color.GREEN)
             operat = 4
+            hideKeyboard()
+        }
+
+        btnClear.setOnClickListener{
+            tvResult.text = ""
+            etNum1.setText("")
+            etNum2.setText("")
+            operat = 0
+            btnMultiply.setBackgroundColor(Color.parseColor("#FF6200EE"))
+            btnPlus.setBackgroundColor(Color.parseColor("#FF6200EE"))
+            btnMinus.setBackgroundColor(Color.parseColor("#FF6200EE"))
+            btnDivide.setBackgroundColor(Color.parseColor("#FF6200EE"))
             hideKeyboard()
         }
 
