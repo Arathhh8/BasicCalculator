@@ -84,6 +84,7 @@ class MainActivity : AppCompatActivity() {
             btnMinus.setBackgroundColor(Color.parseColor("#FF6200EE"))
             btnDivide.setBackgroundColor(Color.parseColor("#FF6200EE"))
             hideKeyboard()
+            etNum1.requestFocus()
         }
 
         btnEqual.setOnClickListener{
@@ -92,21 +93,25 @@ class MainActivity : AppCompatActivity() {
                     add()
                     btnPlus.setBackgroundColor(Color.parseColor("#FF6200EE"))
                     operat = 0
+                    etNum1.requestFocus()
                 }
                 2 -> {
                     rest()
                     btnMinus.setBackgroundColor(Color.parseColor("#FF6200EE"))
                     operat = 0
+                    etNum1.requestFocus()
                 }
                 3 -> {
                     multiply()
                     btnMultiply.setBackgroundColor(Color.parseColor("#FF6200EE"))
                     operat = 0
+                    etNum1.requestFocus()
                 }
                 4 -> {
                     div()
                     btnDivide.setBackgroundColor(Color.parseColor("#FF6200EE"))
                     operat = 0
+                    etNum1.requestFocus()
                 }
                 else -> {
                     Toast.makeText(this,"Select an operation",Toast.LENGTH_SHORT).show()
